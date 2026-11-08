@@ -1,0 +1,73 @@
+{
+  "fechaConsulta": "2026-11-08",
+  "tasas": {
+    "USD_CLP": 970.94,
+    "USD_ARS": 1570,
+    "EUR_CLP": 1090.94,
+    "EUR_ARS": 1800
+  },
+  "fuentes": {
+    "CLP": {
+      "fecha": "2026-11-06",
+      "fuente": "Banco Central de Chile, publicación CVE 2899275 del Diario Oficial, copia consultada en Boletín Virtual",
+      "url": "https://cdn.boletinvirtual.cl/PDF/44592/2899275.pdf"
+    },
+    "ARS": {
+      "fecha": "2026-11-05",
+      "fuente": "Banco de la Nación Argentina, cotización billetes venta, 17:00",
+      "url": "https://www.bna.com.ar/Personas"
+    }
+  },
+  "metodo": "Importe USD multiplicado por tasa USD más importe EUR multiplicado por tasa EUR, por separado para cada moneda local. Referencias académicas sin impuestos ni comisiones.",
+  "escenarios": [
+    {
+      "concepto": "Inferencia base",
+      "USD": 0.33,
+      "EUR": 0,
+      "CLP": 320.4102,
+      "ARS": 518.1
+    },
+    {
+      "concepto": "Inferencia con 10 % de llamadas adicionales",
+      "USD": 0.363,
+      "EUR": 0,
+      "CLP": 352.45122,
+      "ARS": 569.91
+    },
+    {
+      "concepto": "Inferencia con volumen doble",
+      "USD": 0.66,
+      "EUR": 0,
+      "CLP": 640.8204,
+      "ARS": 1036.2
+    },
+    {
+      "concepto": "Airtable Team un usuario",
+      "USD": 20,
+      "EUR": 0,
+      "CLP": 19418.8,
+      "ARS": 31400.0
+    },
+    {
+      "concepto": "Starter más Airtable Free más IA",
+      "USD": 0.33,
+      "EUR": 20,
+      "CLP": 22139.2102,
+      "ARS": 36518.1
+    },
+    {
+      "concepto": "Starter más Team un usuario más IA",
+      "USD": 20.33,
+      "EUR": 20,
+      "CLP": 41558.0102,
+      "ARS": 67918.1
+    },
+    {
+      "concepto": "Pro más Team un usuario más IA",
+      "USD": 20.33,
+      "EUR": 50,
+      "CLP": 74286.2102,
+      "ARS": 121918.1
+    }
+  ]
+}
