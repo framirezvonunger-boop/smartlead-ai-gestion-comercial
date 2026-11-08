@@ -1,0 +1,930 @@
+{
+  "baseId": "appJ8tQtzVQsC2evt",
+  "baseName": "SmartLead AI - Gestión Comercial",
+  "fechaConsulta": "2026-11-08",
+  "tables": [
+    {
+      "id": "tbl6f8RGCdHMYn7hj",
+      "name": "Clientes",
+      "primaryFieldId": "fldgYthLbEhKE8itn",
+      "fields": [
+        {
+          "id": "fldgYthLbEhKE8itn",
+          "name": "Nombre de la empresa",
+          "type": "singleLineText"
+        },
+        {
+          "id": "fldCBl3YcwzzJmNnq",
+          "name": "ID Cliente",
+          "type": "autoNumber",
+          "description": "Identificador numérico único"
+        },
+        {
+          "id": "fldvLMHMOC3XsLtq5",
+          "name": "Código Cliente",
+          "type": "singleLineText",
+          "description": "Identificador externo único (p. ej. CLI-001) para n8n"
+        },
+        {
+          "id": "fld07MWgxXQlgh2Cj",
+          "name": "Sector",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "selNVl4PNa210jjTv",
+                "name": "Tecnología",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selkkI6P2MANqz7dN",
+                "name": "Finanzas",
+                "color": "grayLight2"
+              },
+              {
+                "id": "sellZBILaF1vPbyh9",
+                "name": "Salud",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selKLY82Pwr6sJTyN",
+                "name": "Educación",
+                "color": "grayLight2"
+              },
+              {
+                "id": "sele7a0Y6VC6XmoHI",
+                "name": "Retail",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selXqjf67tjRCoHff",
+                "name": "Manufactura",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selvMqp2WYpllSqfb",
+                "name": "Legal",
+                "color": "grayLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fldfzHLPHjB3ddMr3",
+          "name": "Tamaño",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "sel7sgGafP7BtUNYr",
+                "name": "Pequeña",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selC03L4qWYsaF1Tu",
+                "name": "Mediana",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selCNFP3ghLgox4A2",
+                "name": "Grande",
+                "color": "grayLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fldgmuge54cSUL2jV",
+          "name": "Estado del cliente",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "selSwILXNtU7yrwSa",
+                "name": "Activo",
+                "color": "greenLight2"
+              },
+              {
+                "id": "sel8JgszDdA6J2Mol",
+                "name": "Prospecto",
+                "color": "yellowLight2"
+              },
+              {
+                "id": "selAZxGJQMOgXs2qz",
+                "name": "Inactivo",
+                "color": "grayLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "flde9NolVqSxy3jHf",
+          "name": "Contacto principal",
+          "type": "singleLineText"
+        },
+        {
+          "id": "fldOnE5iTLavzKFPw",
+          "name": "Email de contacto",
+          "type": "email"
+        },
+        {
+          "id": "fld3MSK2Tpzabgt0p",
+          "name": "Teléfono",
+          "type": "phoneNumber"
+        },
+        {
+          "id": "fldIz3rRzyRR122dL",
+          "name": "Sitio web",
+          "type": "url"
+        },
+        {
+          "id": "fldSvabWLhTq3XBl4",
+          "name": "Valor anual estimado",
+          "type": "currency",
+          "config": {
+            "precision": 0,
+            "symbol": "$"
+          }
+        },
+        {
+          "id": "fldiDw3AjqAWGjU1J",
+          "name": "Fecha de alta",
+          "type": "date",
+          "config": {
+            "dateFormat": {
+              "name": "iso",
+              "format": "YYYY-MM-DD"
+            }
+          }
+        },
+        {
+          "id": "fldmuPG6Vts1W1C6z",
+          "name": "Notas",
+          "type": "multilineText"
+        },
+        {
+          "id": "fld3FYmZijAjSYTbP",
+          "name": "Leads",
+          "type": "multipleRecordLinks",
+          "config": {
+            "linkedTableId": "tblp7CFnECr8E6QZI",
+            "isReversed": false,
+            "prefersSingleRecordLink": false,
+            "inverseLinkFieldId": "fldnHE54t7xeUsqer"
+          }
+        },
+        {
+          "id": "fldAGplfVH037GVKb",
+          "name": "Total de leads",
+          "type": "count",
+          "config": {
+            "isValid": true,
+            "recordLinkFieldId": "fld3FYmZijAjSYTbP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblp7CFnECr8E6QZI",
+      "name": "Leads",
+      "primaryFieldId": "fldU0c0Up4Wa7yp0x",
+      "fields": [
+        {
+          "id": "fldU0c0Up4Wa7yp0x",
+          "name": "Nombre del lead",
+          "type": "singleLineText"
+        },
+        {
+          "id": "fldIshWtePIPpeuR4",
+          "name": "ID Lead",
+          "type": "autoNumber"
+        },
+        {
+          "id": "fldPJ4aXsHeSepGFm",
+          "name": "Código Lead",
+          "type": "singleLineText",
+          "description": "Identificador externo único (p. ej. LEAD-001) para n8n"
+        },
+        {
+          "id": "fldnHE54t7xeUsqer",
+          "name": "Cliente",
+          "type": "multipleRecordLinks",
+          "config": {
+            "linkedTableId": "tbl6f8RGCdHMYn7hj",
+            "isReversed": false,
+            "prefersSingleRecordLink": false,
+            "inverseLinkFieldId": "fld3FYmZijAjSYTbP"
+          }
+        },
+        {
+          "id": "fldvTrUH1c5TzY1rF",
+          "name": "Cargo",
+          "type": "singleLineText"
+        },
+        {
+          "id": "fldcGo7Kx7Xf2lbep",
+          "name": "Email",
+          "type": "email"
+        },
+        {
+          "id": "fldyMwR8wcOeT4RXC",
+          "name": "Teléfono",
+          "type": "phoneNumber"
+        },
+        {
+          "id": "fldbNtbtYwsicTeoN",
+          "name": "Origen",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "selUDXyELQ7Ir4A6Z",
+                "name": "Sitio web",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selJA2OccHVBjhClD",
+                "name": "LinkedIn",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selR7h2r2ag2zRjWW",
+                "name": "Referido",
+                "color": "grayLight2"
+              },
+              {
+                "id": "sel6pZ5f9Zr60vTHx",
+                "name": "Evento",
+                "color": "grayLight2"
+              },
+              {
+                "id": "sel1buHoU7IP9wKbv",
+                "name": "Campaña de email",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selLXLpYmg8M8PCni",
+                "name": "Llamada en frío",
+                "color": "grayLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fld9I180djzE8TIop",
+          "name": "Etapa",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "selLx3QPfkr85CzWU",
+                "name": "Nuevo",
+                "color": "blueLight2"
+              },
+              {
+                "id": "seleXaxd8M65g4uPD",
+                "name": "Contactado",
+                "color": "cyanLight2"
+              },
+              {
+                "id": "selYC5PqEMvc9IgJM",
+                "name": "Calificado",
+                "color": "yellowLight2"
+              },
+              {
+                "id": "sel19w2Q1Naip1zEb",
+                "name": "Propuesta",
+                "color": "orangeLight2"
+              },
+              {
+                "id": "selY6AaCnv85V58Lj",
+                "name": "Negociación",
+                "color": "purpleLight2"
+              },
+              {
+                "id": "selnIu1SfyA7EAWik",
+                "name": "Ganado",
+                "color": "greenLight2"
+              },
+              {
+                "id": "selphPU7iYSt70iNM",
+                "name": "Perdido",
+                "color": "redLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fldAbrn7XdyUOobXK",
+          "name": "Estado de aprobación",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "selO91KBs9WrsUCwE",
+                "name": "Pendiente",
+                "color": "yellowLight2"
+              },
+              {
+                "id": "selZ6Yt1UhEmBUEu5",
+                "name": "Aprobado",
+                "color": "greenLight2"
+              },
+              {
+                "id": "selJ5wdgzklSqbCYc",
+                "name": "Rechazado",
+                "color": "redLight2"
+              },
+              {
+                "id": "selsB88wCJKht4I6H",
+                "name": "En revisión",
+                "color": "orangeLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fldrpa8BPJVRmknjW",
+          "name": "Puntaje IA",
+          "type": "number",
+          "description": "Puntaje de calificación de IA (0-100)",
+          "config": {
+            "precision": 0
+          }
+        },
+        {
+          "id": "fldR6EGdaimmMsuBp",
+          "name": "Prioridad IA",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "selbBvMxTVqNk1Bsa",
+                "name": "Alta",
+                "color": "redLight2"
+              },
+              {
+                "id": "selJkLlui2lrvKaZN",
+                "name": "Media",
+                "color": "yellowLight2"
+              },
+              {
+                "id": "selkigXsKMAoyJF6U",
+                "name": "Baja",
+                "color": "grayLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fldSAufLXdLzj2wRS",
+          "name": "Resumen IA",
+          "type": "multilineText"
+        },
+        {
+          "id": "fldbP05IarCE3O60r",
+          "name": "Valor estimado",
+          "type": "currency",
+          "config": {
+            "precision": 0,
+            "symbol": "$"
+          }
+        },
+        {
+          "id": "fldRoEat5zvv24vI2",
+          "name": "Fecha de creación",
+          "type": "date",
+          "config": {
+            "dateFormat": {
+              "name": "iso",
+              "format": "YYYY-MM-DD"
+            }
+          }
+        },
+        {
+          "id": "fldeSA77AENu0GIBI",
+          "name": "Próximo seguimiento",
+          "type": "date",
+          "config": {
+            "dateFormat": {
+              "name": "iso",
+              "format": "YYYY-MM-DD"
+            }
+          }
+        },
+        {
+          "id": "fldWyTeWFYc0YVCvR",
+          "name": "Responsable",
+          "type": "singleLineText"
+        },
+        {
+          "id": "fldbPrGwlHmzFhaOy",
+          "name": "Interacciones",
+          "type": "multipleRecordLinks",
+          "config": {
+            "linkedTableId": "tblQYFXr97EhxcvLu",
+            "isReversed": false,
+            "prefersSingleRecordLink": false,
+            "inverseLinkFieldId": "fldwiRjUPOEF00xVt"
+          }
+        },
+        {
+          "id": "fldg74ik9Euf3QIcC",
+          "name": "Ejecuciones",
+          "type": "multipleRecordLinks",
+          "config": {
+            "linkedTableId": "tbl6UWjm7tk4hWoH9",
+            "isReversed": false,
+            "prefersSingleRecordLink": false,
+            "inverseLinkFieldId": "fldC3w7wTRFQb1EKQ"
+          }
+        },
+        {
+          "id": "fldA5sDonpKIAnnhQ",
+          "name": "Total de interacciones",
+          "type": "count",
+          "config": {
+            "isValid": true,
+            "recordLinkFieldId": "fldbPrGwlHmzFhaOy"
+          }
+        },
+        {
+          "id": "fldOTIfD1jW4fjIRT",
+          "name": "Total de ejecuciones",
+          "type": "count",
+          "config": {
+            "isValid": true,
+            "recordLinkFieldId": "fldg74ik9Euf3QIcC"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tblQYFXr97EhxcvLu",
+      "name": "Interacciones",
+      "primaryFieldId": "fld1qksZW189B5xua",
+      "fields": [
+        {
+          "id": "fld1qksZW189B5xua",
+          "name": "Asunto",
+          "type": "singleLineText"
+        },
+        {
+          "id": "fldzu9wucoyC4q5lJ",
+          "name": "ID Interacción",
+          "type": "autoNumber"
+        },
+        {
+          "id": "fld3hN6g2EOEYaJzb",
+          "name": "Código Interacción",
+          "type": "singleLineText",
+          "description": "Identificador externo único (p. ej. INT-001) para n8n"
+        },
+        {
+          "id": "fldwiRjUPOEF00xVt",
+          "name": "Lead",
+          "type": "multipleRecordLinks",
+          "config": {
+            "linkedTableId": "tblp7CFnECr8E6QZI",
+            "isReversed": false,
+            "prefersSingleRecordLink": false,
+            "inverseLinkFieldId": "fldbPrGwlHmzFhaOy"
+          }
+        },
+        {
+          "id": "fldPLOxOEg6f7HaJI",
+          "name": "Tipo",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "sellqxDJJteAKSgkD",
+                "name": "Email",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selc2bp8xn4JhPDdf",
+                "name": "Llamada",
+                "color": "grayLight2"
+              },
+              {
+                "id": "seleJU7E6HU6kNfAG",
+                "name": "Reunión",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selfGe9ShmqMVBn9D",
+                "name": "Mensaje LinkedIn",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selFX2sBcKNiwyshT",
+                "name": "Demo",
+                "color": "grayLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fldF1mtyqAICSqd5B",
+          "name": "Dirección",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "selJWzlDQFY121Rsb",
+                "name": "Saliente",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selynxaKgyKEprfjA",
+                "name": "Entrante",
+                "color": "grayLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fldhrSXS1QBIdV6kK",
+          "name": "Estado del correo",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "sel6JeWIpJNS9IZg2",
+                "name": "Borrador",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selIR3zN8D9GZoDwp",
+                "name": "Pendiente de aprobación",
+                "color": "yellowLight2"
+              },
+              {
+                "id": "selxErZ6hKpASDFcB",
+                "name": "Aprobado",
+                "color": "greenLight2"
+              },
+              {
+                "id": "selj5eyCg5fcYoGTz",
+                "name": "Rechazado",
+                "color": "redLight2"
+              },
+              {
+                "id": "selhjpTAVEz8okXJJ",
+                "name": "Enviado (simulado)",
+                "color": "blueLight2"
+              },
+              {
+                "id": "selQh5nBqCh6H5R3R",
+                "name": "Respondido",
+                "color": "purpleLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fldM6El39QBTEB8v9",
+          "name": "Estado de aprobación",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "selSN2vGno1FY2Fnj",
+                "name": "Pendiente",
+                "color": "yellowLight2"
+              },
+              {
+                "id": "seldyvowSTy4Op2Q8",
+                "name": "Aprobado",
+                "color": "greenLight2"
+              },
+              {
+                "id": "sel3GohWwrSnMAlsE",
+                "name": "Rechazado",
+                "color": "redLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fld0OElzK7fv3a8Ig",
+          "name": "Email destinatario",
+          "type": "email"
+        },
+        {
+          "id": "fldXDCpKklPuQc4BC",
+          "name": "Cuerpo del correo",
+          "type": "multilineText"
+        },
+        {
+          "id": "fldpBM8JRIGtzax2P",
+          "name": "Borrador generado por IA",
+          "type": "checkbox",
+          "config": {
+            "icon": "check",
+            "color": "greenBright"
+          }
+        },
+        {
+          "id": "fld6h8HQ5xjNMlhry",
+          "name": "Sentimiento IA",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "seljX9nPBL0ncANNg",
+                "name": "Positivo",
+                "color": "greenLight2"
+              },
+              {
+                "id": "selI0HXdyD5X3K3pJ",
+                "name": "Neutral",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selOx6dM3ztPpMkpK",
+                "name": "Negativo",
+                "color": "redLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fldVs8S0dy6uvX1ku",
+          "name": "Resumen IA",
+          "type": "multilineText"
+        },
+        {
+          "id": "fldcMDdvbikjyYAGG",
+          "name": "Fecha de interacción",
+          "type": "dateTime",
+          "config": {
+            "dateFormat": {
+              "name": "iso",
+              "format": "YYYY-MM-DD"
+            },
+            "timeFormat": {
+              "name": "24hour",
+              "format": "HH:mm"
+            },
+            "timeZone": "America/Santiago"
+          }
+        },
+        {
+          "id": "fld8iOyU1ODWqMdUS",
+          "name": "Aprobado por",
+          "type": "singleLineText"
+        },
+        {
+          "id": "fldWvAnmC2UhNS17F",
+          "name": "Ejecuciones",
+          "type": "multipleRecordLinks",
+          "config": {
+            "linkedTableId": "tbl6UWjm7tk4hWoH9",
+            "isReversed": false,
+            "prefersSingleRecordLink": false,
+            "inverseLinkFieldId": "fld40u4HDVwu9tQY5"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tbl6UWjm7tk4hWoH9",
+      "name": "Ejecuciones",
+      "primaryFieldId": "fldsLARtZlfJBQdN6",
+      "fields": [
+        {
+          "id": "fldsLARtZlfJBQdN6",
+          "name": "Nombre de ejecución",
+          "type": "singleLineText"
+        },
+        {
+          "id": "fldkpZyIl9LnNG29D",
+          "name": "ID Ejecución",
+          "type": "autoNumber"
+        },
+        {
+          "id": "fldBWwvvEAQ4mWpFP",
+          "name": "ID Ejecución n8n",
+          "type": "singleLineText",
+          "description": "ID de ejecución del workflow en n8n (para sincronización por API)"
+        },
+        {
+          "id": "fldbkNsUz05RsrKoV",
+          "name": "Workflow",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "selzfkUT2l35CksL3",
+                "name": "Calificación de leads",
+                "color": "grayLight2"
+              },
+              {
+                "id": "sel1at2rYQ4C6JHiu",
+                "name": "Generación de correo",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selhffKdlksuG5Gk3",
+                "name": "Resumen de interacción",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selx6x3jiQ98b6WKK",
+                "name": "Enriquecimiento de cliente",
+                "color": "grayLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fldC3w7wTRFQb1EKQ",
+          "name": "Lead",
+          "type": "multipleRecordLinks",
+          "config": {
+            "linkedTableId": "tblp7CFnECr8E6QZI",
+            "isReversed": false,
+            "prefersSingleRecordLink": false,
+            "inverseLinkFieldId": "fldg74ik9Euf3QIcC"
+          }
+        },
+        {
+          "id": "fld40u4HDVwu9tQY5",
+          "name": "Interacción",
+          "type": "multipleRecordLinks",
+          "config": {
+            "linkedTableId": "tblQYFXr97EhxcvLu",
+            "isReversed": false,
+            "prefersSingleRecordLink": false,
+            "inverseLinkFieldId": "fldWvAnmC2UhNS17F"
+          }
+        },
+        {
+          "id": "fldVYRqNBeceKW393",
+          "name": "Estado",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "selDzBjwiyDg1HZuG",
+                "name": "En cola",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selBvwORrYe374brH",
+                "name": "En ejecución",
+                "color": "blueLight2"
+              },
+              {
+                "id": "selUtlp38mXxuKBnM",
+                "name": "Exitosa",
+                "color": "greenLight2"
+              },
+              {
+                "id": "selHGRx1SrNcHlpkI",
+                "name": "Error",
+                "color": "redLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fldBGZIBUvX6fcuF1",
+          "name": "Inicio",
+          "type": "dateTime",
+          "config": {
+            "dateFormat": {
+              "name": "iso",
+              "format": "YYYY-MM-DD"
+            },
+            "timeFormat": {
+              "name": "24hour",
+              "format": "HH:mm"
+            },
+            "timeZone": "America/Santiago"
+          }
+        },
+        {
+          "id": "fldT1EF5kZwl2Vadw",
+          "name": "Duración (seg)",
+          "type": "number",
+          "config": {
+            "precision": 1
+          }
+        },
+        {
+          "id": "fld2i8KDfmB54OdgD",
+          "name": "Modelo de IA",
+          "type": "singleLineText"
+        },
+        {
+          "id": "fldyZaRtepbJnjjV8",
+          "name": "Tokens usados",
+          "type": "number",
+          "config": {
+            "precision": 0
+          }
+        },
+        {
+          "id": "fldJKW8fIvMY99WVj",
+          "name": "Costo (USD)",
+          "type": "currency",
+          "config": {
+            "precision": 4,
+            "symbol": "$"
+          }
+        },
+        {
+          "id": "fldHRLTRF6qCUZtGi",
+          "name": "Resultado IA",
+          "type": "multilineText"
+        },
+        {
+          "id": "fldo3dzNlNql85pGS",
+          "name": "Confianza IA",
+          "type": "percent",
+          "config": {
+            "precision": 0
+          }
+        },
+        {
+          "id": "fldqdAcmIQOcuMRZs",
+          "name": "Registro de error",
+          "type": "multilineText"
+        },
+        {
+          "id": "fld6RwHSVJAWdnnZy",
+          "name": "Código de error",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "selwlQKu0SV3D4RSb",
+                "name": "TIMEOUT",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selGbt323Iu8hv3Zp",
+                "name": "RATE_LIMIT",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selgPnrHLTrsTXVlh",
+                "name": "INVALID_DATA",
+                "color": "grayLight2"
+              },
+              {
+                "id": "selOP0Zzvl4qMBCz2",
+                "name": "API_ERROR",
+                "color": "grayLight2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "fld1W8VcKb5eFDtVP",
+          "name": "Reintentos",
+          "type": "number",
+          "config": {
+            "precision": 0
+          }
+        },
+        {
+          "id": "fldzJpGcgNlkQVKdx",
+          "name": "Aprobación requerida",
+          "type": "checkbox",
+          "config": {
+            "icon": "check",
+            "color": "yellowBright"
+          }
+        },
+        {
+          "id": "fldpzNz7JdY0lOmEW",
+          "name": "Estado de aprobación",
+          "type": "singleSelect",
+          "config": {
+            "choices": [
+              {
+                "id": "selemrsALsZN48WHX",
+                "name": "Pendiente",
+                "color": "blueLight2"
+              },
+              {
+                "id": "selX1024mQpoBmY77",
+                "name": "Aprobado",
+                "color": "cyanLight2"
+              },
+              {
+                "id": "sel3n0OBQ0ESf1kF1",
+                "name": "Rechazado",
+                "color": "tealLight2"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

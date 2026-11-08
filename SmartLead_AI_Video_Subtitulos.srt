@@ -1,0 +1,47 @@
+1
+00:00:00,000 --> 00:00:15,000
+Un proyecto académico que organiza correos comerciales con Gmail, n8n, GPT-4o mini y Airtable. Incluye revisión humana y registro de errores.
+
+2
+00:00:15,000 --> 00:00:30,000
+Una consulta puede llegar con datos incompletos. El flujo interpreta la necesidad, prepara la información y contempla derivar las excepciones a una persona.
+
+3
+00:00:30,000 --> 00:00:50,000
+Gmail → modelo de IA → JavaScript → decisión de revisión. La rama comercial consulta Airtable; la ruta humana solicita una respuesta y registra la decisión.
+
+4
+00:00:50,000 --> 00:01:05,000
+La captura muestra una salida correcta del disparador con un correo de prueba. Este resultado verifica el ingreso, no la ejecución completa del workflow.
+
+5
+00:01:05,000 --> 00:01:20,000
+GPT-4o mini interpreta el correo. El export anterior contiene un JSON.parse en JavaScript: convierte texto JSON, pero no acredita validación de campos o rangos.
+
+6
+00:01:20,000 --> 00:01:35,000
+Clientes, Leads, Interacciones y Ejecuciones: 71 campos y cuatro pares de vínculos recíprocos verificados directamente en Airtable. La configuración admite enlaces múltiples.
+
+7
+00:01:35,000 --> 00:01:55,000
+Send a message muestra ejecución correcta. Su entrada identifica la Ejecución 9, el ID n8n 39 y Aprobación requerida = true. No muestra una aprobación posterior.
+
+8
+00:01:55,000 --> 00:02:15,000
+El mensaje recibido conserva las referencias 9 y 39. Explica el motivo: no se pudo identificar claramente el nombre del contacto, y solicita revisar Ejecuciones.
+
+9
+00:02:15,000 --> 00:02:30,000
+La consulta directa confirma la Ejecución n.º 10 en estado Error, con el mensaje de fallo simulado. No tiene ID de n8n informado; no demuestra recuperación automática.
+
+10
+00:02:30,000 --> 00:02:40,000
+1.000 correos × 1.000 tokens de entrada y 300 de salida = USD 0,33 de inferencia. No incluye suscripciones, reintentos, impuestos ni revisión humana.
+
+11
+00:02:40,000 --> 00:02:50,000
+Dashboard Ejecutivo existe como borrador en Airtable. Pipeline comercial es una cuadrícula de Leads. La publicación, el acceso público y sus KPIs siguen pendientes.
+
+12
+00:02:50,000 --> 00:03:00,000
+Confirmado: trigger, alerta interna, esquema de Airtable y registro del error simulado. Pendiente: JSON vigente, pruebas completas y dashboard público.

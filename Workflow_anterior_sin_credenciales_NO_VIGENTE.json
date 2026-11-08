@@ -1,0 +1,655 @@
+{
+  "name": "SmartLead AI - Gestión Inteligente de Leads",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyX",
+              "value": 5,
+              "unit": "minutes"
+            }
+          ]
+        },
+        "maxResults": 5,
+        "filters": {
+          "q": "subject:\"SmartLead AI\" in:inbox -in:trash -in:spam"
+        }
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -656,
+        0
+      ],
+      "id": "3350cbc3-d5d7-4e8b-b429-76c83c7923e7",
+      "name": "Gmail Trigger"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appJ8tQtzVQsC2evt",
+          "mode": "list",
+          "cachedResultName": "SmartLead AI - Gestión Comercial",
+          "cachedResultUrl": "https://airtable.com/appJ8tQtzVQsC2evt"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblp7CFnECr8E6QZI",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appJ8tQtzVQsC2evt/tblp7CFnECr8E6QZI"
+        },
+        "filterByFormula": "={{ \"LOWER({Email}) = LOWER('\" + $('Get a message').first().json.from.value[0].address + \"')\" }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        128,
+        0
+      ],
+      "id": "d28a8d4e-3cb9-4952-b8f6-13dc3cc079e8",
+      "name": "Search records",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "messageId": "={{ $('Gmail Trigger').first().json.id }}",
+        "simple": false,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -496,
+        0
+      ],
+      "id": "605f3946-8563-467a-8352-26538f3ed6ee",
+      "name": "Get a message",
+      "webhookId": "bb373d51-1777-4dc2-83b7-fd1128add640"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=Eres un asistente de análisis comercial de SmartLead AI.\n\nAnaliza el siguiente correo electrónico e identifica:\n- Nombre del contacto.\n- Necesidad principal del cliente.\n- Volumen mensual de consultas, si se menciona.\n- Si solicita una propuesta comercial.\n- Prioridad comercial: Alta, Media o Baja.\n\nAsigna prioridad Alta cuando el correo solicite explícitamente una propuesta comercial y describa una necesidad concreta; Media cuando exista interés comercial pero falte información; Baja cuando no haya una intención comercial clara.\n\nNo inventes información. Cuando un dato no esté disponible, utiliza null.\n\nResponde únicamente con un objeto JSON válido, sin explicaciones ni bloques de código.\n\nCorreo a analizar:\n{{ $('Get a message').first().json.text }}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        -336,
+        0
+      ],
+      "id": "e5f4e696-f83a-494a-9bd3-d714b0dc7787",
+      "name": "Message a model"
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst respuesta = $('Message a model').first().json;\n\nconst textoIA = respuesta.output[0].content[0].text;\n\nconst datos = JSON.parse(textoIA);\n\nreturn [\n  {\n    json: datos\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -48,
+        0
+      ],
+      "id": "6a667c86-afe0-44f9-a044-79b7c16e1451",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 4
+          },
+          "conditions": [
+            {
+              "id": "21820e53-f0e6-44e3-9e01-6e7640fe3373",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "={{ $json.id }}",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.4,
+      "position": [
+        352,
+        0
+      ],
+      "id": "35df2533-61d7-477b-9b22-f27817741a1d",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6e8bff55-45b2-44b7-a741-ece97d5a9cb8",
+              "name": "Nombre del lead",
+              "value": "={{ $('Code in JavaScript').first().json.nombre_contacto }}",
+              "type": "string"
+            },
+            {
+              "id": "1a926d25-ca41-43f9-bfdd-b7e98a51acc2",
+              "name": "Email",
+              "value": "={{ $('Get a message').first().json.from.value[0].address }}",
+              "type": "string"
+            },
+            {
+              "id": "025175e6-2c45-4a3f-b7cc-1ac4127f6947",
+              "name": "Prioridad IA",
+              "value": "={{ $('Code in JavaScript').first().json.prioridad_comercial }}",
+              "type": "string"
+            },
+            {
+              "id": "4fd1ab2f-93c1-45e2-a3c6-da332e800bc3",
+              "name": "Resumen IA",
+              "value": "={{ $('Code in JavaScript').first().json.necesidad_principal }}",
+              "type": "string"
+            },
+            {
+              "id": "1b3d0dc7-ea03-4581-985d-00d880858287",
+              "name": "Etapa",
+              "value": "Nuevo",
+              "type": "string"
+            },
+            {
+              "id": "26b38ed5-b1fd-411f-9188-e323938f5877",
+              "name": "Estado de aprobación",
+              "value": "Pendiente",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        544,
+        96
+      ],
+      "id": "c8337979-2669-44f7-9005-d0fdbf38e237",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appJ8tQtzVQsC2evt",
+          "mode": "list",
+          "cachedResultName": "SmartLead AI - Gestión Comercial",
+          "cachedResultUrl": "https://airtable.com/appJ8tQtzVQsC2evt"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblp7CFnECr8E6QZI",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appJ8tQtzVQsC2evt/tblp7CFnECr8E6QZI"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Nombre del lead": "={{ $json[\"Nombre del lead\"] }}",
+            "Email": "daniela.perez@example.com",
+            "Prioridad IA": "={{ $json[\"Prioridad IA\"] }}",
+            "Resumen IA": "={{ $json[\"Resumen IA\"] }}",
+            "Etapa": "={{ $json[\"Etapa\"] }}",
+            "Estado de aprobación": "={{ $json[\"Estado de aprobación\"] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Nombre del lead",
+              "displayName": "Nombre del lead",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ID Lead",
+              "displayName": "ID Lead",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Código Lead",
+              "displayName": "Código Lead",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Cliente",
+              "displayName": "Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Cargo",
+              "displayName": "Cargo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Teléfono",
+              "displayName": "Teléfono",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Origen",
+              "displayName": "Origen",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Sitio web",
+                  "value": "Sitio web"
+                },
+                {
+                  "name": "LinkedIn",
+                  "value": "LinkedIn"
+                },
+                {
+                  "name": "Referido",
+                  "value": "Referido"
+                },
+                {
+                  "name": "Evento",
+                  "value": "Evento"
+                },
+                {
+                  "name": "Campaña de email",
+                  "value": "Campaña de email"
+                },
+                {
+                  "name": "Llamada en frío",
+                  "value": "Llamada en frío"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Etapa",
+              "displayName": "Etapa",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Nuevo",
+                  "value": "Nuevo"
+                },
+                {
+                  "name": "Contactado",
+                  "value": "Contactado"
+                },
+                {
+                  "name": "Calificado",
+                  "value": "Calificado"
+                },
+                {
+                  "name": "Propuesta",
+                  "value": "Propuesta"
+                },
+                {
+                  "name": "Negociación",
+                  "value": "Negociación"
+                },
+                {
+                  "name": "Ganado",
+                  "value": "Ganado"
+                },
+                {
+                  "name": "Perdido",
+                  "value": "Perdido"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Estado de aprobación",
+              "displayName": "Estado de aprobación",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Pendiente",
+                  "value": "Pendiente"
+                },
+                {
+                  "name": "Aprobado",
+                  "value": "Aprobado"
+                },
+                {
+                  "name": "Rechazado",
+                  "value": "Rechazado"
+                },
+                {
+                  "name": "En revisión",
+                  "value": "En revisión"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Puntaje IA",
+              "displayName": "Puntaje IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Prioridad IA",
+              "displayName": "Prioridad IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Alta",
+                  "value": "Alta"
+                },
+                {
+                  "name": "Media",
+                  "value": "Media"
+                },
+                {
+                  "name": "Baja",
+                  "value": "Baja"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Resumen IA",
+              "displayName": "Resumen IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Valor estimado",
+              "displayName": "Valor estimado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de creación",
+              "displayName": "Fecha de creación",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Próximo seguimiento",
+              "displayName": "Próximo seguimiento",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Responsable",
+              "displayName": "Responsable",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Interacciones",
+              "displayName": "Interacciones",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ejecuciones",
+              "displayName": "Ejecuciones",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Total de interacciones",
+              "displayName": "Total de interacciones",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Total de ejecuciones",
+              "displayName": "Total de ejecuciones",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        768,
+        96
+      ],
+      "id": "671fda53-338a-4ae3-a81c-4a792e4f354a",
+      "name": "Create a record"
+    }
+  ],
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a message": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Search records",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search records": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "nodeGroups": []
+}

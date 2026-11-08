@@ -1,0 +1,234 @@
+{
+  "consulta": "2026-11-08",
+  "ejecuciones": {
+    "records": [
+      {
+        "id": "rec01Ki7Q7R4xl4HE",
+        "createdTime": "2026-11-03T23:43:13.000Z",
+        "cellValuesByFieldId": {
+          "fldBGZIBUvX6fcuF1": "2026-10-20T12:30:00.000Z",
+          "fldBWwvvEAQ4mWpFP": "demo-exec-1002",
+          "fldJKW8fIvMY99WVj": 0.021,
+          "fldVYRqNBeceKW393": {
+            "id": "selUtlp38mXxuKBnM",
+            "name": "Exitosa",
+            "color": "greenLight2"
+          },
+          "fldkpZyIl9LnNG29D": 2,
+          "fldyZaRtepbJnjjV8": 2100,
+          "fldzJpGcgNlkQVKdx": true
+        }
+      },
+      {
+        "id": "recDdkoLYXWB2vfxL",
+        "createdTime": "2026-11-03T23:43:13.000Z",
+        "cellValuesByFieldId": {
+          "fldBGZIBUvX6fcuF1": "2026-10-02T14:00:00.000Z",
+          "fldBWwvvEAQ4mWpFP": "demo-exec-1003",
+          "fldJKW8fIvMY99WVj": 0.0118,
+          "fldVYRqNBeceKW393": {
+            "id": "selUtlp38mXxuKBnM",
+            "name": "Exitosa",
+            "color": "greenLight2"
+          },
+          "fldkpZyIl9LnNG29D": 3,
+          "fldyZaRtepbJnjjV8": 1180
+        }
+      },
+      {
+        "id": "recGQzIahKjXNxHfO",
+        "createdTime": "2026-11-03T23:43:13.000Z",
+        "cellValuesByFieldId": {
+          "fldBGZIBUvX6fcuF1": "2026-11-03T11:00:00.000Z",
+          "fldBWwvvEAQ4mWpFP": "demo-exec-1008",
+          "fldJKW8fIvMY99WVj": 0.0176,
+          "fldVYRqNBeceKW393": {
+            "id": "selUtlp38mXxuKBnM",
+            "name": "Exitosa",
+            "color": "greenLight2"
+          },
+          "fldkpZyIl9LnNG29D": 8,
+          "fldyZaRtepbJnjjV8": 1760,
+          "fldzJpGcgNlkQVKdx": true
+        }
+      },
+      {
+        "id": "recLjyUyhFltqQuXW",
+        "createdTime": "2026-11-03T23:43:13.000Z",
+        "cellValuesByFieldId": {
+          "fldBGZIBUvX6fcuF1": "2026-10-28T19:00:00.000Z",
+          "fldBWwvvEAQ4mWpFP": "demo-exec-1005",
+          "fldJKW8fIvMY99WVj": 0,
+          "fldVYRqNBeceKW393": {
+            "id": "selHGRx1SrNcHlpkI",
+            "name": "Error",
+            "color": "redLight2"
+          },
+          "fldkpZyIl9LnNG29D": 5,
+          "fldqdAcmIQOcuMRZs": "Tiempo de espera agotado al llamar al modelo (error ficticio).",
+          "fldyZaRtepbJnjjV8": 0
+        }
+      },
+      {
+        "id": "recetwnswBJIsxF0q",
+        "createdTime": "2026-11-03T23:43:13.000Z",
+        "cellValuesByFieldId": {
+          "fldBGZIBUvX6fcuF1": "2026-10-19T12:00:00.000Z",
+          "fldBWwvvEAQ4mWpFP": "demo-exec-1001",
+          "fldJKW8fIvMY99WVj": 0.0125,
+          "fldVYRqNBeceKW393": {
+            "id": "selUtlp38mXxuKBnM",
+            "name": "Exitosa",
+            "color": "greenLight2"
+          },
+          "fldkpZyIl9LnNG29D": 1,
+          "fldyZaRtepbJnjjV8": 1250
+        }
+      },
+      {
+        "id": "recfwxrrLvliP0Thb",
+        "createdTime": "2026-11-03T23:43:13.000Z",
+        "cellValuesByFieldId": {
+          "fldBGZIBUvX6fcuF1": "2026-07-01T14:00:00.000Z",
+          "fldBWwvvEAQ4mWpFP": "demo-exec-1006",
+          "fldJKW8fIvMY99WVj": 0.0015,
+          "fldVYRqNBeceKW393": {
+            "id": "selHGRx1SrNcHlpkI",
+            "name": "Error",
+            "color": "redLight2"
+          },
+          "fldkpZyIl9LnNG29D": 6,
+          "fldqdAcmIQOcuMRZs": "Datos de entrada incompletos: falta sitio web (error ficticio).",
+          "fldyZaRtepbJnjjV8": 150
+        }
+      },
+      {
+        "id": "recg4DgnvlRTZYREq",
+        "createdTime": "2026-11-03T23:43:13.000Z",
+        "cellValuesByFieldId": {
+          "fldBGZIBUvX6fcuF1": "2026-11-03T11:30:00.000Z",
+          "fldBWwvvEAQ4mWpFP": "demo-exec-1007",
+          "fldVYRqNBeceKW393": {
+            "id": "selDzBjwiyDg1HZuG",
+            "name": "En cola",
+            "color": "grayLight2"
+          },
+          "fldkpZyIl9LnNG29D": 7
+        }
+      },
+      {
+        "id": "reci0JT3VX7exT7kD",
+        "createdTime": "2026-11-03T23:43:13.000Z",
+        "cellValuesByFieldId": {
+          "fldBGZIBUvX6fcuF1": "2026-11-02T12:00:00.000Z",
+          "fldBWwvvEAQ4mWpFP": "demo-exec-1004",
+          "fldJKW8fIvMY99WVj": 0.0198,
+          "fldVYRqNBeceKW393": {
+            "id": "selUtlp38mXxuKBnM",
+            "name": "Exitosa",
+            "color": "greenLight2"
+          },
+          "fldkpZyIl9LnNG29D": 4,
+          "fldyZaRtepbJnjjV8": 1980,
+          "fldzJpGcgNlkQVKdx": true
+        }
+      },
+      {
+        "id": "recokZTH8IOIjJO3h",
+        "createdTime": "2026-11-08T05:43:25.000Z",
+        "cellValuesByFieldId": {
+          "fldVYRqNBeceKW393": {
+            "id": "selHGRx1SrNcHlpkI",
+            "name": "Error",
+            "color": "redLight2"
+          },
+          "fldkpZyIl9LnNG29D": 10,
+          "fldpzNz7JdY0lOmEW": {
+            "id": "selemrsALsZN48WHX",
+            "name": "Pendiente",
+            "color": "blueLight2"
+          },
+          "fldqdAcmIQOcuMRZs": "Error simulado: servicio de IA temporalmente no disponible"
+        }
+      },
+      {
+        "id": "recqznpWFBjH6gEP4",
+        "createdTime": "2026-11-04T20:00:05.000Z",
+        "cellValuesByFieldId": {
+          "fldBWwvvEAQ4mWpFP": "39",
+          "fldVYRqNBeceKW393": {
+            "id": "selDzBjwiyDg1HZuG",
+            "name": "En cola",
+            "color": "grayLight2"
+          },
+          "fldkpZyIl9LnNG29D": 9,
+          "fldpzNz7JdY0lOmEW": {
+            "id": "selX1024mQpoBmY77",
+            "name": "Aprobado",
+            "color": "cyanLight2"
+          },
+          "fldzJpGcgNlkQVKdx": true
+        }
+      }
+    ],
+    "metadata": {
+      "totalRecordCount": 10
+    }
+  },
+  "leadsPorEtapa": {
+    "fields": [
+      {
+        "name": "Etapa",
+        "type": "select"
+      },
+      {
+        "name": "Count",
+        "type": "number"
+      }
+    ],
+    "rowsByFieldName": [
+      {
+        "Count": 2,
+        "Etapa": "Contactado"
+      },
+      {
+        "Count": 1,
+        "Etapa": "Perdido"
+      },
+      {
+        "Count": 1,
+        "Etapa": "Propuesta"
+      },
+      {
+        "Count": 1,
+        "Etapa": "Negociación"
+      },
+      {
+        "Count": 3,
+        "Etapa": "Nuevo"
+      },
+      {
+        "Count": 1,
+        "Etapa": "Ganado"
+      },
+      {
+        "Count": 1,
+        "Etapa": "Calificado"
+      }
+    ]
+  },
+  "interfaces": {
+    "interfaces": [],
+    "draftPages": [
+      {
+        "id": "paghD6oKSIV343pdF",
+        "interfaceId": "pbdPZdzgthK2M4ycQ",
+        "interfaceName": "SmartLead AI - Dirección Comercial",
+        "name": "Dashboard Ejecutivo",
+        "pageType": "dashboard"
+      }
+    ],
+    "standaloneForms": [],
+    "embeddedForms": []
+  }
+}

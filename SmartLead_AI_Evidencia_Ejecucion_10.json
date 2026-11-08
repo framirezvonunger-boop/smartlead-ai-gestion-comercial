@@ -1,0 +1,51 @@
+{
+  "fechaConsulta": "2026-11-08",
+  "baseId": "appJ8tQtzVQsC2evt",
+  "tableId": "tbl6UWjm7tk4hWoH9",
+  "records": [
+    {
+      "id": "recokZTH8IOIjJO3h",
+      "createdTime": "2026-11-08T05:43:25.000Z",
+      "cellValuesByFieldId": {
+        "fld2i8KDfmB54OdgD": "gpt-4o-mini",
+        "fldVYRqNBeceKW393": {
+          "id": "selHGRx1SrNcHlpkI",
+          "name": "Error",
+          "color": "redLight2"
+        },
+        "fldkpZyIl9LnNG29D": 10,
+        "fldpzNz7JdY0lOmEW": {
+          "id": "selemrsALsZN48WHX",
+          "name": "Pendiente",
+          "color": "blueLight2"
+        },
+        "fldqdAcmIQOcuMRZs": "Error simulado: servicio de IA temporalmente no disponible",
+        "fldsLARtZlfJBQdN6": "Error IA - SmartLead AI"
+      }
+    }
+  ],
+  "metadata": {
+    "totalRecordCount": 1
+  },
+  "campos": {
+    "fldsLARtZlfJBQdN6": "Nombre de ejecución",
+    "fldkpZyIl9LnNG29D": "ID Ejecución",
+    "fldBWwvvEAQ4mWpFP": "ID Ejecución n8n",
+    "fldbkNsUz05RsrKoV": "Workflow",
+    "fldC3w7wTRFQb1EKQ": "Lead",
+    "fld40u4HDVwu9tQY5": "Interacción",
+    "fldVYRqNBeceKW393": "Estado",
+    "fldBGZIBUvX6fcuF1": "Inicio",
+    "fldT1EF5kZwl2Vadw": "Duración (seg)",
+    "fld2i8KDfmB54OdgD": "Modelo de IA",
+    "fldyZaRtepbJnjjV8": "Tokens usados",
+    "fldJKW8fIvMY99WVj": "Costo (USD)",
+    "fldHRLTRF6qCUZtGi": "Resultado IA",
+    "fldo3dzNlNql85pGS": "Confianza IA",
+    "fldqdAcmIQOcuMRZs": "Registro de error",
+    "fld6RwHSVJAWdnnZy": "Código de error",
+    "fld1W8VcKb5eFDtVP": "Reintentos",
+    "fldzJpGcgNlkQVKdx": "Aprobación requerida",
+    "fldpzNz7JdY0lOmEW": "Estado de aprobación"
+  }
+}

@@ -1,0 +1,40 @@
+GUION DEL VIDEO SMARTLEAD AI
+Autora: Francisca Beatriz Ramírez von Unger
+Duración: 3 minutos. Video con texto en pantalla y sin narración de audio.
+Este guion ofrece una narración opcional; no describe una ejecución en vivo.
+
+00:00:00 a 00:00:15 | SmartLead AI
+SmartLead AI busca ordenar el primer contacto comercial. El proyecto combina interpretación con inteligencia artificial, registro de información y una instancia de revisión humana. En este recorrido se muestran la arquitectura y las pruebas disponibles.
+
+00:00:15 a 00:00:30 | El problema que aborda
+El punto de partida es una consulta por correo que puede venir incompleta. El objetivo es extraer la necesidad del contacto y organizarla, sin dejar que una interpretación dudosa avance sin revisión. No se han medido todavía ahorros de tiempo ni resultados de ventas.
+
+00:00:30 a 00:00:50 | Cómo se conecta el sistema
+La captura del workflow muestra el ingreso desde Gmail, el modelo y JavaScript. Después aparece la decisión de revisión humana. La otra rama consulta si el lead ya existe en Airtable. Los nodos de aprobación y rechazo están configurados, pero la imagen no demuestra que ambas rutas se hayan probado completas.
+
+00:00:50 a 00:01:05 | Prueba del ingreso de correo
+En la prueba del disparador se observa un elemento de salida con una consulta ficticia. Los parámetros visibles indican una consulta cada cinco minutos. Esta evidencia permite comprobar que Gmail entrega un mensaje al proceso, pero no que todo el recorrido posterior haya terminado.
+
+00:01:05 a 00:01:20 | Qué aporta la IA
+La inteligencia artificial se utiliza para interpretar el lenguaje del correo. En el export anterior, JavaScript convierte la respuesta con JSON.parse. Es importante distinguir esa conversión de una validación completa: los campos obligatorios y las reglas de negocio deben comprobarse por separado.
+
+00:01:20 a 00:01:35 | Dónde queda la información
+La consulta directa a Airtable confirma setenta y un campos y cuatro pares de vínculos recíprocos. Eso permite documentar los tipos físicos de las cuatro tablas. Los enlaces admiten múltiples registros; no se supone una relación de un solo cliente por lead ni que todos los vínculos se completen automáticamente.
+
+00:01:35 a 00:01:55 | La revisión humana
+La Prueba 01 documenta una alerta interna. La entrada del nodo identifica la Ejecución 9 y el ID de n8n 39, con aprobación requerida. La salida del envío tiene marca de éxito. Este resultado verifica la notificación; no demuestra que una persona haya aprobado después ni que se haya contactado al cliente.
+
+00:01:55 a 00:02:15 | La alerta llega a Gmail
+La siguiente captura muestra la alerta abierta en Gmail. El mensaje conserva las referencias de ejecución y explica que el nombre del contacto no se pudo identificar claramente. También indica que se debe revisar el registro en Airtable antes de continuar. Así se comprueban la recepción y el contenido de la alerta.
+
+00:02:15 a 00:02:30 | Qué ocurre si falla la IA
+La consulta directa confirma el registro de la Ejecución número diez, en estado Error y con el texto del fallo simulado. No tiene un ID de n8n informado. Queda verificado el registro, pero no la recuperación automática ni una correlación independiente con una ejecución específica del orquestador.
+
+00:02:30 a 00:02:40 | Costos con supuestos claros
+El presupuesto separa la inferencia de las suscripciones. Con los supuestos del informe, mil correos equivalen a treinta y tres centavos de dólar de inferencia. Es una estimación académica, no una factura ni el costo total.
+
+00:02:40 a 00:02:50 | Dashboard de control
+La consulta identifica Dashboard Ejecutivo como una página en borrador. La vista entregada se llama Pipeline comercial y es una cuadrícula de Leads. Para cerrar la rúbrica falta publicar y verificar el panel con indicadores y tasa de errores.
+
+00:02:50 a 00:03:00 | Balance y próximos pasos
+El proyecto cuenta con pruebas parciales documentadas y un esquema verificado. El error simulado está registrado. El siguiente paso es completar las pruebas de extremo a extremo, exportar el workflow vigente y publicar el dashboard para el evaluador.
